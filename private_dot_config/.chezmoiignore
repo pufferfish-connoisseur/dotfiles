@@ -1,0 +1,11 @@
+# MacOS only packages
+{{ if ne .chezmoi.os "darwin" -}}
+aerospace
+karabiner
+{{- end }}
+
+# Linux only packages
+{{ if ne .chezmoi.os "linux" -}}
+niri
+foot
+{{- end }}

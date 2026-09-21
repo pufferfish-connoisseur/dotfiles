@@ -1,0 +1,11 @@
+[pull]
+    ff = only
+[push]
+    autoSetupRemote = true
+[init]
+    defaultBranch = main
+[branch]
+    sort = -committerdate
+[user]
+    email = {{ .git.email }}
+    name = {{ .git.name }}

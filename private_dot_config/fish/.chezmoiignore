@@ -1,0 +1,3 @@
+# Cruft we don't want in the repo
+.config/fish/fish_variables
+.config/fish/fisher/**

@@ -1,0 +1,174 @@
+config-version = 2
+
+after-startup-command = [
+'exec-and-forget borders active_color=0xff7aa2f7 inactive_color=0xff1a1b26 width=10',
+'move-workspace-to-monitor --workspace 1 main'
+]
+
+start-at-login = true
+
+# Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 30
+
+default-root-container-layout = 'tiles'
+
+default-root-container-orientation = 'auto'
+
+key-mapping.preset = 'qwerty'
+
+on-focus-changed = ['move-mouse window-lazy-center']
+
+automatically-unhide-macos-hidden-apps = true
+
+persistent-workspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "S"]
+
+[gaps]
+inner.horizontal = 16
+inner.vertical =   16
+outer.left =       16
+outer.bottom =     16
+outer.top =        16
+outer.right =      16
+
+[mode.main.binding]
+
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+alt-u = 'workspace next'
+alt-i = 'workspace prev'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move
+alt-ctrl-h = 'move left'
+alt-ctrl-j = 'move down'
+alt-ctrl-k = 'move up'
+alt-ctrl-l = 'move right'
+alt-ctrl-u = 'move-node-to-workspace next'
+alt-ctrl-i = 'move-node-to-workspace prev'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#resize
+alt-minus = 'resize smart -50'
+alt-equal = 'resize smart +50'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+alt-0 = 'workspace 10'
+alt-backtick = 'workspace S'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
+alt-ctrl-1 = 'move-node-to-workspace 1'
+alt-ctrl-2 = 'move-node-to-workspace 2'
+alt-ctrl-3 = 'move-node-to-workspace 3'
+alt-ctrl-4 = 'move-node-to-workspace 4'
+alt-ctrl-5 = 'move-node-to-workspace 5'
+alt-ctrl-6 = 'move-node-to-workspace 6'
+alt-ctrl-7 = 'move-node-to-workspace 7'
+alt-ctrl-8 = 'move-node-to-workspace 8'
+alt-ctrl-9 = 'move-node-to-workspace 9'
+alt-ctrl-0 = 'move-node-to-workspace 10'
+alt-ctrl-backtick = 'move-node-to-workspace S'
+
+alt-tab = 'workspace-back-and-forth'
+
+alt-shift-h = 'focus-monitor left'
+alt-shift-j = 'focus-monitor down'
+alt-shift-k = 'focus-monitor up'
+alt-shift-l = 'focus-monitor right'
+
+alt-ctrl-tab = 'move-workspace-to-monitor --wrap-around next'
+alt-shift-ctrl-h = 'move-node-to-monitor --focus-follows-window left'
+alt-shift-ctrl-j = 'move-node-to-monitor --focus-follows-window down'
+alt-shift-ctrl-k = 'move-node-to-monitor --focus-follows-window up'
+alt-shift-ctrl-l = 'move-node-to-monitor --focus-follows-window right'
+
+# See: https://nikitabobko.github.io/AeroSpace/commands#mode
+alt-shift-s = 'mode service'
+
+# i3-like goodies
+cmd-enter = 'exec-and-forget open -a /Applications/WezTerm.app'
+cmd-shift-enter = 'exec-and-forget /opt/homebrew/bin/emacsclient -n -c'
+
+alt-f = 'fullscreen'
+
+alt-r = 'mode resize'
+alt-m = 'move-workspace-to-monitor --workspace S secondary'
+alt-shift-m = 'mode move'
+
+alt-shift-r = 'reload-config'
+
+alt-s = 'layout v_accordion' # 'layout stacking' in i3
+alt-w = 'layout h_accordion' # 'layout tabbed' in i3
+alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
+
+alt-v = 'layout floating tiling' # 'floating toggle' in i3
+# alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+# cmd-shift-space = 'layout floating tiling' # 'floating toggle' in i3
+
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+
+equal = 'balance-sizes'
+
+enter = 'mode main'
+esc = 'mode main'
+
+# 'service' binding mode declaration.
+# See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main'] # reset layout
+f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
+backspace = ['close-all-windows-but-current', 'mode main']
+
+# sticky is not yet supported https://github.com/nikitabobko/AeroSpace/issues/2
+#s = ['layout sticky tiling', 'mode main']
+
+# alt-shift-h = ['join-with left', 'mode main']
+# alt-shift-j = ['join-with down', 'mode main']
+# alt-shift-k = ['join-with up', 'mode main']
+# alt-shift-l = ['join-with right', 'mode main']
+
+# Rapidly shift around stuff
+
+[mode.move.binding]
+1 = 'workspace 1'
+2 = 'workspace 2'
+3 = 'workspace 3'
+4 = 'workspace 4'
+5 = 'workspace 5'
+6 = 'workspace 6'
+7 = 'workspace 7'
+8 = 'workspace 8'
+9 = 'workspace 9'
+backtick = 'workspace S'
+
+h = 'move-workspace-to-monitor --wrap-around left'
+j = 'move-workspace-to-monitor --wrap-around down'
+k = 'move-workspace-to-monitor --wrap-around up'
+l = 'move-workspace-to-monitor --wrap-around right'
+
+enter = 'mode main'
+esc = 'mode main'
+
+# idea is switch to workspace with 1 button and can workspaces easily
+
+# App specific stuff
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['layout floating', 'move-node-to-workspace 2']
+
