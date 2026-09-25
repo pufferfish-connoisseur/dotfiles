@@ -1,8 +1,6 @@
-if command -q eza
-  abbr -a ls eza
-  abbr -a la eza -al
-  abbr -a ll eza -l
-  abbr -a lt eza -TL 2
+if status is-interactive
+    abbr -a debugemacs pkill -SIGUSR2 emacs
+    if test "$(uname)" = Linux
+        abbr -a fuckemacs systemctl --user restart emacs
+    end
 end
-
-abbr -a fuckemacs pkill -SIGUSR2 emacs
