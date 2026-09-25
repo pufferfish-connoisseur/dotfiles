@@ -1,6 +1,11 @@
-{{ $personal := promptBoolOnce . "personal" "Is this a personal compouter? (Not for work)" false -}}
-{{ $email := promptStringOnce . "git.email" "Git email?" "115584328+pufferfish-connoisseur@users.noreply.github.com" -}}
-{{ $name := promptStringOnce . "git.name" "Git name?" "pufferfish-connoiseur" -}}
+{{- $personal := promptBoolOnce . "personal" "Would you like to enable personal mode" false -}}
+{{- $email := "115584328+pufferfish-connoisseur@users.noreply.github.com" -}}
+{{- $name := "pufferfish-connoisseur" -}}
+{{- if not $personal -}}
+  {{- $email = promptStringOnce . "git.email" "Git email" $email -}}
+  {{- $name = promptStringOnce . "git.name" "Git name" $name -}}
+{{- end -}}
+
 data:
     personal: {{ $personal }}
     git:
