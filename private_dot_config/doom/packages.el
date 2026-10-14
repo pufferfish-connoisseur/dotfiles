@@ -53,5 +53,5 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;; (unpin! t)
 
-(package! ef-themes)
-(package! chezmoi)
+(package! ef-themes :pin "e1f617607a5f0692b398365dcd8412ba1e98ccb3")
+(package! chezmoi :pin "1389782f8c0780c7e66f8e77b10345ba1f4eabae")
