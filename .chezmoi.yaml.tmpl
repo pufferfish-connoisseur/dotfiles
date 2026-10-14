@@ -1,12 +1,28 @@
 {{- $personal := promptBoolOnce . "personal" "Would you like to enable personal mode" false -}}
 {{- $email := "115584328+pufferfish-connoisseur@users.noreply.github.com" -}}
 {{- $name := "pufferfish-connoisseur" -}}
+{{- $passphrase := "" -}}
 {{- if not $personal -}}
   {{- $email = promptStringOnce . "git.email" "Git email" $email -}}
   {{- $name = promptStringOnce . "git.name" "Git name" $name -}}
 {{- end -}}
 
+{{- if $personal -}}
+    {{- $passphrase = promptStringOnce . "passphrase" "passphrase" $passphrase -}}
+{{- end -}}
+
+encryption: gpg
+gpg:
+  symmetric: true
+  args:
+  - --batch
+  - --passphrase
+  - {{ $passphrase | quote }}
+  - --no-symkey-cache
+  - --quiet
+
 data:
+    passphrase: {{ $passphrase | quote }}
     personal: {{ $personal }}
     git:
         email: {{ $email | quote }}

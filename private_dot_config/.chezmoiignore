@@ -9,3 +9,8 @@ karabiner
 niri
 foot
 {{- end }}
+
+# Encrypted things
+{{ if not .personal -}}
+rclone
+{{- end }}
